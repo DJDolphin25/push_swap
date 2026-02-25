@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/02/24 22:19:45 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/02/25 20:18:46 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_node	*ft_lstnew(long number);
 t_node	*ft_lstlast(t_node *head);
 void	ft_lstadd_front(t_node **head, t_node *new);
 void	ft_lstadd_back(t_node **head, t_node *new);
-void	ft_lstclear(t_node **head);		
+void	ft_lstclear(t_node **head);
+int	ft_lstsize(t_node *head);		
 
 
 #endif
