@@ -6,11 +6,11 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 20:22:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/02/25 20:32:37 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:15:38 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_lstsize(t_node *head)
 {

@@ -6,11 +6,11 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:14:47 by theoppon          #+#    #+#             */
-/*   Updated: 2026/02/25 21:01:40 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:56:45 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 t_node	*ft_lstnew(long number)
 {
@@ -79,15 +79,16 @@ void	ft_lstclear(t_node **head)
 
 static void list_print(t_node *list)
 {
-	const t_node    *cur = list;
-          printf("[");
-          while (cur)
-          {
-		  printf("%ld", cur->number);
-                  cur = cur->next;
-                  if (cur) printf(" -> ");
-          }
-          printf("]\n");
+	t_node    *cur = list;
+	printf("[");
+	while (cur)
+	{
+		printf("%ld", cur->number);
+		cur = cur->next;
+		if (cur) 
+			printf(" -> ");
+	}
+	printf("]\n");
 }
 
 int main()
@@ -105,14 +106,14 @@ int main()
 	list_print(a);
 	int len = ft_lstsize(a);
 	printf("%d\n", len);
-	/*ft_lstadd_front(&d, c);
+	ft_lstadd_front(&d, c);
 	list_print(d)
 	ft_lstadd_back(&d, b);
 	list_print(d);
 	int len = ft_lstsize(d);
 	printf("%d\n", len);
 	ft_lstclear(&d);
-	printf("%p", d);*/
+	printf("%p", d);
 
 	return (0);
 
