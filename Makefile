@@ -9,7 +9,8 @@ CFLAGS = -Wall -Wextra -Werror -I includes -I srcs/libft/includes
 PUSH_SRC = srcs/lst_utils.c \
            srcs/lst_utils2.c \
 	   srcs/main.c \
-	   srcs/parser.c
+	   srcs/parser.c \
+	   srcs/parser_utils.c
 
 PUSH_OBJ = $(PUSH_SRC:.c=.o)
 

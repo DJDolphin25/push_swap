@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 20:22:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/02/27 18:15:38 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/04 23:23:18 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,40 @@ int	ft_lstsize(t_node *head)
 		len++;
 	}
 	return (len);
+}
+
+static t_node	*fill_stack(int *numbers, int total)
+{
+	t_node	*head;
+	t_node	*prev;
+	t_node	*curr;
+	int	*ptr;
+	int	*end;
+
+	if (total <= 0)
+		return (NULL);
+	ptr = numbers;
+	end = numbers + total;
+	head = ft_lstnew(*ptr++);
+	prev = head;
+	while (ptr < end)
+	{
+		curr = ft_lstnew(*ptr++);
+		prev->next = curr;
+		curr->prev = prev;
+		prev = curr;
+	}
+	return (head);
+}
+
+t_stack	*init_stack(int *numbers, int total)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		error_msg();
+	stack->a = fill_stack(numbers, total);
+	stack->b = NULL;
+	return (stack);
 }
