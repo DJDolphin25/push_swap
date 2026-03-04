@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/02/25 20:18:46 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/04 00:33:06 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@ void	ft_lstadd_back(t_node **head, t_node *new);
 void	ft_lstclear(t_node **head);
 int	ft_lstsize(t_node *head);		
 
+
+//Parsing funtcions
+void		error_msg(void);
+void		validate_all(int ac, char **av);
 
 #endif
