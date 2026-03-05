@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:16:03 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/04 23:33:09 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/05 23:18:29 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,44 @@ void	error_msg(void)
 	exit(1);
 }
 
-void	validate_single(char *num)
+static void	free_split(char **split)
 {
+	char	**tmp;
+
+	if (!split)
+		return ;
+	tmp = split;
+	while (*tmp)
+	{
+		free(*tmp);
+		tmp++;
+	}
+	free(split);
+}
+
+void	check_duplicates(t_node *head)
+{
+	t_node	*i;
+	t_node	*j;
+
+	i = head;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			if (i->number == j->number)
+				error_msg();
+			j = j->next;
+		}
+		i = i->next;
+	}
+}
+
+long	parse_number(char *num)
+{
+	int		sign;
 	long	result;
-	int	sign;
 
 	if (!num || *num == '\0')
 		error_msg();
@@ -40,26 +74,39 @@ void	validate_single(char *num)
 	{
 		if (!ft_isdigit(*num))
 			error_msg();
-		result = result * 10 + (*num - '0');
-		if ((sign == 1 && result > 2147483647) || 
-				(sign == -1 && -result < -2147483648))
+		result = result * 10 + (*num++ - '0');
+		if ((sign == 1 && result > 2147483647)
+			|| (sign == -1 && - result < -2147483648))
 			error_msg();
-		num++;
 	}
+	return (result * sign);
 }
 
-void	validate_all(int ac, char **av)
+t_node	*parse_stack(char **av)
 {
-	int	*num;
-	int	total;
+	char	**split;
+	char	**s;
+	long	num;
+	t_node	*head;
+	t_node	*node;
 
-	if (ac < 2)
-		exit(1);
-	total = count_numbers(ac, av);
-	num = malloc(sizeof(int) * total);
-	if (!num)
-		error_msg();
-	fill_numbers(num, ac, av);
-	check_duplicates(num, total);
-	free(num);
+	head = NULL;
+	av++;
+	while (*av)
+	{
+		split = ft_split(*av++, ' ');
+		if (!split)
+			error_msg();
+		s = split;
+		while (*s)
+		{
+			num = parse_number(*s++);
+			node = ft_lstnew(num);
+			if (!node)
+				error_msg();
+			ft_lstadd_back(&head, node);
+		}
+		free_split(split);
+	}
+	return (head);
 }

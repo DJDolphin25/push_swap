@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:14:47 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/04 00:29:27 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/05 22:40:43 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	ft_lstclear(t_node **head)
 		(*head) = temp;
 	}
 }
-
 /*#include <stdio.h>
 
 static void list_print(t_node *list)
