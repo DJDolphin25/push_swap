@@ -43,13 +43,7 @@ void	ft_lstclear(t_node **head);
 
 //Parsing funtcions
 void	error_msg(void);
-void	validate_single(char *num);
-void	validate_all(int ac, char **av);
-
-//Parser utils
-int	count_numbers(int ac, char **av);
-
-void	fill_numbers(int *arr, int ac, char **av);
-void	check_duplicates(int *arr, int size);
+void	check_duplicates(t_node *head);
+t_node	*parse_stack(char **av);
 
 #endif

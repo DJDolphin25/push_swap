@@ -53,7 +53,7 @@ void	check_duplicates(t_node *head)
 	}
 }
 
-long	parse_number(char *num)
+static	long	parse_number(char *num)
 {
 	int		sign;
 	long	result;
