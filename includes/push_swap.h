@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/04 23:41:33 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/06 17:42:00 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 # include <stdlib.h>
 
-typedef struct	s_node
+typedef struct s_node
 {
-	long		number;
-	struct s_node 	*next;
+	long			number;
+	struct s_node	*next;
 	struct s_node	*prev;
-}t_node;
+}	t_node;
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	t_node	*a;
 	t_node	*b;
-}t_stack;
+}	t_stack;
 
 //Linked list funtcions
 
-int	ft_lstsize(t_node *head);
+int		ft_lstsize(t_node *head);
 
 t_node	*ft_lstnew(long number);
 t_node	*ft_lstlast(t_node *head);
@@ -40,10 +40,10 @@ void	ft_lstadd_front(t_node **head, t_node *new);
 void	ft_lstadd_back(t_node **head, t_node *new);
 void	ft_lstclear(t_node **head);		
 
-
 //Parsing funtcions
+t_node	*parse_stack(char **av);
+
 void	error_msg(void);
 void	check_duplicates(t_node *head);
-t_node	*parse_stack(char **av);
 
 #endif

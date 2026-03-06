@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 23:07:34 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/03 23:08:54 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/06 17:37:47 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,18 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-
 //Libft functions
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_toupper(int c);
-int	ft_tolower(int c);
-int	ft_atoi(const char *nptr);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_atoi(const char *nptr);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
@@ -59,18 +58,16 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
-
 //ft_printf functions
-int	ft_printf(const char *format, ...);
-int	parser(va_list args, const char *format);
-int	print_char(int c);
-int	print_string(char *s);
-int	print_decimal(int n);
-int	print_unsigned_decimal(unsigned int n);
-int	print_hex_lowercase(int n);
-int	print_hex_uppercase(int n);
-int	print_memory(void *p);
-
+int		ft_printf(const char *format, ...);
+int		parser(va_list args, const char *format);
+int		print_char(int c);
+int		print_string(char *s);
+int		print_decimal(int n);
+int		print_unsigned_decimal(unsigned int n);
+int		print_hex_lowercase(int n);
+int		print_hex_uppercase(int n);
+int		print_memory(void *p);
 
 //  get_next_line functions
 
