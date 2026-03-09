@@ -10,6 +10,7 @@ PUSH_SRC = srcs/lst_utils.c \
            srcs/lst_utils2.c \
            srcs/main.c \
            srcs/parser.c \
+	   srcs/rules.c
 
 PUSH_OBJ = $(PUSH_SRC:.c=.o)
 
