@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/09 01:30:28 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 01:04:55 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stack
+typedef struct s_stacks
 {
 	t_node	*a;
+	t_node	*tail_a;
 	t_node	*b;
-}	t_stack;
+	t_node	*tail_b;
+}	t_stacks
 
 //Linked list funtcions
 
@@ -47,8 +49,14 @@ void	error_msg(void);
 void	check_duplicates(t_node *head);
 
 //Rules
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
+void	sa(t_stack *stacks);
+void	sb(t_stack *stacks);
+void	ss(t_stack *stacks);
 
+void	pa(t_stack *stacks);
+void	pb(t_stack *stacks);
+
+void	ra(t_stacks *stacks);
+void	rb(t_stacks *stacks);
+void	rr(t_stacks *stacks);
 #endif

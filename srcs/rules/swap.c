@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:34:51 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/09 01:28:37 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 01:02:00 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "push_swap.h"
 
-static void swap(t_node **head)
+static void	swap(t_node **head)
 {
 	if (*head && (*head)->next)
 	{
@@ -31,21 +32,21 @@ static void swap(t_node **head)
 	}
 }
 
-void sa(t_stack *a)
+void	sa(t_stack *stacks)
 {
-	swap(&(a->a));
-	ft_print("sa\n");
+	swap(&(stacks->a));
+	ft_printf("sa\n");
 }
 
-void sb(t_stack *b)
+void	sb(t_stack *stack)
 {
-	swap(&(b->b));
+	swap(&(stacks->b));
 	ft_printf("sb\n");
 }
 
-void ss(t_stack *a, t_stack *b)
+void	ss(t_stack *stacks)
 {
-	swap(&(a->a));
-	swap(&(b->b));
+	swap(&(stacks->a));
+	swap(&(stacks->b));
 	ft_printf("ss\n");
 }

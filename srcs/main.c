@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/05 23:28:50 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 00:22:22 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int ac, char **av)
 	stack->a = parse_stack(av);
 	stack->b = NULL;
 	check_duplicates(stack->a);
+	stacks->tail_a = ft_lstlast(stacks->a);
+	stacks->tail_b = ft_lstlast(stacks->b)
 	// list_print(stack->a);
 	// list_print(stack->b);
 	return (0);
