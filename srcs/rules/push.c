@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:35:05 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 00:27:23 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 21:54:16 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,37 @@
 void	pa(t_stack *stacks)
 {
 	t_node	*head;
-	
+
 	head = stacks->b;
 	if (stacks->b)
-	{	
+	{
 		stacks->b = stacks->b->next;
 		if (stacks->b)
 			stacks->b->prev = NULL;
-		lst_add_front((&(stacks->a)), head);
-		ft_printf("pa\n")
+		else
+			stacks->tail_b = NULL;
+		ft_lstadd_front(&stacks->a, head);
+		if (!stacks->tail_a)
+			stacks->tail_a = head;
+		ft_printf("pa\n");
 	}
 }
 
 void	pb(t_stack *stacks)
 {
-	t_node  *head;
-	
+	t_node	*head;
+
 	head = stacks->a;
 	if (stacks->a)
 	{
 		stacks->a = stacks->a->next;
 		if (stacks->a)
 			stacks->a->prev = NULL;
-		lst_add_front((&(stacks->b)), head);
-		ft_printf("pb\n")
+		else
+			stacks->tail_a = NULL;
+		ft_lstadd_front(&stacks->b, head);
+		if (!stacks->tail_b)
+			stacks->tail_b = head;
+		ft_printf("pb\n");
 	}
 }
-

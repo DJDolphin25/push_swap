@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 01:04:55 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 23:10:27 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stacks
+typedef struct s_stack
 {
 	t_node	*a;
-	t_node	*tail_a;
 	t_node	*b;
+	t_node	*tail_a;
 	t_node	*tail_b;
-}	t_stacks
+}	t_stack;
 
 //Linked list funtcions
-
 int		ft_lstsize(t_node *head);
 
 t_node	*ft_lstnew(long number);
 t_node	*ft_lstlast(t_node *head);
-t_stack	*init_stack(int *numbers, int total);
 
 void	ft_lstadd_front(t_node **head, t_node *new);
 void	ft_lstadd_back(t_node **head, t_node *new);
@@ -56,7 +54,12 @@ void	ss(t_stack *stacks);
 void	pa(t_stack *stacks);
 void	pb(t_stack *stacks);
 
-void	ra(t_stacks *stacks);
-void	rb(t_stacks *stacks);
-void	rr(t_stacks *stacks);
+void	ra(t_stack *stacks);
+void	rb(t_stack *stacks);
+void	rr(t_stack *stacks);
+
+void	rra(t_stack *stacks);
+void	rrb(t_stack *stacks);
+void	rrr(t_stack *stacks);
+
 #endif

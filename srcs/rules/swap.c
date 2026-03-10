@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:34:51 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 01:02:00 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/10 23:30:09 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 
 static void	swap(t_node **head)
 {
+	t_node	*first;
+	t_node	*second;
+	
 	if (*head && (*head)->next)
 	{
-		t_node	*first;
-		t_node	*second;
-
+		ft_printf("swapped called\n");
 		first = *head;
 		second = (*head)->next;
+		ft_printf("%d\n", first->number);
+		ft_printf("%d\n", second->number);
 		first->next = second->next;
 		second->prev = NULL;
 		second->next = first;
@@ -29,6 +32,8 @@ static void	swap(t_node **head)
 		first->prev = second;
 		if (first->next)
 			first->next->prev = first;
+		ft_printf("%d\n", first->number);
+		ft_printf("%d\n", second->number);
 	}
 }
 
@@ -38,7 +43,7 @@ void	sa(t_stack *stacks)
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack *stack)
+void	sb(t_stack *stacks)
 {
 	swap(&(stacks->b));
 	ft_printf("sb\n");
