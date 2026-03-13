@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 23:50:45 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/13 14:33:31 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,17 @@ int     main(int ac, char **av)
         stacks->tail_a = ft_lstlast(stacks->a);
         stacks->tail_b = NULL;
 
-        printf("Initial:\n");
+        /*ft_printf("Initial:\n");
         list_print(stacks->a);
         list_print(stacks->b);
 
-        printf("\npb pb (llenamos B)\n");
+        ft_printf("\npb pb (llenamos B)\n");
         pb(stacks);
         pb(stacks);
         list_print(stacks->a);
         list_print(stacks->b);
 
-        printf("\nsa sb\n");
+        ft_printf("\nsa sb\n");
         ft_printf("%p\n", (void *)stacks->a);
 	sa(stacks);
 	ft_printf("%p\n", (void *)stacks->a);
@@ -63,22 +63,24 @@ int     main(int ac, char **av)
         list_print(stacks->b);
 
         printf("\npa pb\n");
+	ft_printf("%p\n", (void *)stacks->b);
         pa(stacks);
         pb(stacks);
         list_print(stacks->a);
         list_print(stacks->b);
 
-        printf("\nra rb\n");
+        ft_printf("\nra rb\n");
+	ft_printf("%p\n", stacks->tail_a);
         ra(stacks);
-        rb(stacks);
+	rb(stacks);
         list_print(stacks->a);
         list_print(stacks->b);
 
-        printf("\nrra rrb\n");
+        ft_printf("\nrra rrb\n");
         rra(stacks);
         rrb(stacks);
         list_print(stacks->a);
-        list_print(stacks->b);
+        list_print(stacks->b);*/
 
         return (0);
 }

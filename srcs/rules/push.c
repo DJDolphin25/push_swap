@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:35:05 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 21:54:16 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/13 14:34:12 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	pa(t_stack *stacks)
 			stacks->b->prev = NULL;
 		else
 			stacks->tail_b = NULL;
+		head->prev = NULL;
 		ft_lstadd_front(&stacks->a, head);
 		if (!stacks->tail_a)
 			stacks->tail_a = head;
@@ -44,6 +45,7 @@ void	pb(t_stack *stacks)
 			stacks->a->prev = NULL;
 		else
 			stacks->tail_a = NULL;
+		head->prev = NULL;
 		ft_lstadd_front(&stacks->b, head);
 		if (!stacks->tail_b)
 			stacks->tail_b = head;

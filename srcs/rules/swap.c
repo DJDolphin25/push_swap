@@ -6,52 +6,48 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:34:51 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/10 23:30:09 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/13 14:17:52 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-static void	swap(t_node **head)
+static void	swap(t_node **head, t_node **tail)
 {
 	t_node	*first;
 	t_node	*second;
 	
-	if (*head && (*head)->next)
-	{
-		ft_printf("swapped called\n");
-		first = *head;
-		second = (*head)->next;
-		ft_printf("%d\n", first->number);
-		ft_printf("%d\n", second->number);
-		first->next = second->next;
-		second->prev = NULL;
-		second->next = first;
-		*head = second;
-		first->prev = second;
-		if (first->next)
-			first->next->prev = first;
-		ft_printf("%d\n", first->number);
-		ft_printf("%d\n", second->number);
-	}
+	if (!*head || !(*head)->next)
+		return ;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	else
+		*tail = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*head = second;
 }
 
 void	sa(t_stack *stacks)
 {
-	swap(&(stacks->a));
+	swap(&stacks->a, &stacks->tail_a);
 	ft_printf("sa\n");
 }
 
 void	sb(t_stack *stacks)
 {
-	swap(&(stacks->b));
+	swap(&stacks->b, &stacks->tail_b);
 	ft_printf("sb\n");
 }
 
 void	ss(t_stack *stacks)
 {
-	swap(&(stacks->a));
-	swap(&(stacks->b));
+	swap(&stacks->a, &stacks->tail_a);
+	swap(&stacks->b, &stacks->tail_b);
 	ft_printf("ss\n");
 }
