@@ -6,14 +6,16 @@ CFLAGS = -Wall -Wextra -Werror -I includes -I srcs/libft/includes
 
 # Sources push_swap
 
-PUSH_SRC = srcs/lst_utils.c \
-           srcs/lst_utils2.c \
+PUSH_SRC = srcs/utils/lst_utils.c \
+           srcs/utils/lst_utils2.c \
            srcs/main.c \
-           srcs/parser.c \
+	   srcs/parser/sorted.c \
+           srcs/parser/parser.c \
 	   srcs/rules/swap.c \
 	   srcs/rules/push.c \
 	   srcs/rules/rotate.c \
-	   srcs/rules/reverse_rotate.c
+	   srcs/rules/reverse_rotate.c \
+	   srcs/algo/small_cases.c
 
 PUSH_OBJ = $(PUSH_SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/13 14:33:31 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/18 22:06:00 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,15 @@ int     main(int ac, char **av)
         check_duplicates(stacks->a);
         stacks->tail_a = ft_lstlast(stacks->a);
         stacks->tail_b = NULL;
+	if (is_sorted(stacks) == 0)
+		return (0);
+	if (ft_lstsize(stacks->a) <= 5)
+		sort_small(stacks);
 
-        /*ft_printf("Initial:\n");
         list_print(stacks->a);
         list_print(stacks->b);
 
-        ft_printf("\npb pb (llenamos B)\n");
+        /*ft_printf("\npb pb (llenamos B)\n");
         pb(stacks);
         pb(stacks);
         list_print(stacks->a);
