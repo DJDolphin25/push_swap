@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 23:34:51 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/13 14:17:52 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:46:30 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	swap(t_node **head, t_node **tail)
 {
 	t_node	*first;
 	t_node	*second;
-	
+
 	if (!*head || !(*head)->next)
 		return ;
 	first = *head;

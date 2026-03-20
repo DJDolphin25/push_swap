@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 21:10:41 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/18 22:23:42 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:50:03 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	is_sorted(t_stack *stacks)
 {
-	t_node *curr;
+	t_node	*curr;
 
 	curr = stacks->a;
 	if (!curr || !curr->next)

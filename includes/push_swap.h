@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/18 21:23:44 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/20 16:41:59 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ t_node	*ft_lstlast(t_node *head);
 
 void	ft_lstadd_front(t_node **head, t_node *new);
 void	ft_lstadd_back(t_node **head, t_node *new);
-void	ft_lstclear(t_node **head);		
+void	ft_lstclear(t_node **head);
+
+//Utils
+int		find_max(t_stack *stacks);
+
+void	move_to_top(t_stack *stacks, int value);
 
 //Parsing funtcions
-int	is_sorted(t_stack *stacks);
+int		is_sorted(t_stack *stacks);
 
 t_node	*parse_stack(char **av);
 
