@@ -33,6 +33,7 @@ Compile the project with:
 make
 ```
 
+
 Execution
 
 Run the program by passing integers as arguments:
@@ -42,6 +43,7 @@ Run the program by passing integers as arguments:
 ```
 
 This will print the sequence of operations needed to sort the stack.
+
 
 Stress test loop:
 
@@ -54,15 +56,14 @@ for i in $(seq 1 20); do
 done
 ```
 
-Edge Case Testing
 
-Handles:
+**Edge Case Testing**
 
 - Already sorted input
 - Input with negative numbers
 - `INT_MAX` and `INT_MIN` values
-- Duplicate values → prints `"Error\n"`
-- Empty strings or invalid arguments → prints `"Error\n"`
+- Duplicate values
+- Empty strings or invalid arguments
 - Small and large stacks
 
 ---
@@ -99,21 +100,21 @@ Handles:
 
 ## Resources
 
-Classic references:
+**References:**
 
-* Linked list tutorials in C in Youtube
+* Double linked list tutorials in C in Youtube
 * https://m4nnb3ll.medium.com/my-journey-to-find-a-good-sorting-algorithm-for-the-push-swap-42-project-4a18bc38b474
-*  (https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
-* `push_swap visualizer` :(https://github.com/o-reo/push_swap_visualizer)
+* https://medium.com/@ayogun/push-swap-c1f5d2d41e97
+* `push_swap visualizer:` https://github.com/o-reo/push_swap_visualizer
 
 ### Use of AI
 
 AI tools were used **as a learning and review aid only**, specifically for:
 
-* Clarify edge cases and memory managment pitfalls
-* Review logic and defensive programming practices
-* Validate understanding of the subject requirements
-* Debug complex issues through guided reasoning
+* Clarifying edge cases and memory managment pitfalls
+* Reviewing logic and defensive programming practices
+* Validating understanding of the subject requirements
+* Debugging complex issues through guided reasoning
 
 All code was written, tested, and debugged by the author. **No AI-generated code was copied directly into the project.** The learning process emphasized understanding over shortcuts, with AI serving as a mentor rather than a solution provider.
 
