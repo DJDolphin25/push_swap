@@ -4,7 +4,7 @@
 
 ## Description
 
-The *push_swap* project consists of implementing a sorting algorithm that operates on a stack of integers using a restricted set of operations. The goal is to sort the input stack with the minimum number of operations while using two stacks (a and b) and only the allowed push, swap, rotate, and reverse rotate commands.
+The **push_swap** project consists of implementing a sorting algorithm that operates on a stack of integers using a restricted set of operations. The goal is to sort the input stack with the minimum number of operations while using two stacks (a and b) and only the allowed push, swap, rotate, and reverse rotate commands.
 
 The project emphasizes:
 
@@ -46,11 +46,12 @@ This will print the sequence of operations needed to sort the stack.
 Stress test loop:
 
 ```bash
-$ for i in $(seq 1 20); do
+for i in $(seq 1 20); do
     arg=$(python3 -c "import random; nums=random.sample(range(10000),500); print(' '.join(map(str,nums)))")
+    result=$(./push_swap $arg | ./checker_linux $arg)
     count=$(./push_swap $arg | wc -l)
-    echo "$count ops"
-  done
+    echo "$result - $count ops"
+done
 ```
 
 Edge Case Testing
@@ -78,10 +79,10 @@ Handles:
    - Minimal number of moves
 
 3. Large Stack Sorting
-   - Compute cost_a and cost_b for moving elements
-   - Execute optimal moves with execute_move
-   - Move back elements from b to a using move_b_to_a
-   - Finish with final_rotation
+   - Compute `cost_a` and `cost_b` for moving elements
+   - Execute optimal moves with `execute_move`
+   - Move back elements from b to a using `move_b_to_a`
+   - Finish with `final_rotation`
 
 4. Operations
    - Swap (sa, sb, ss)
@@ -91,22 +92,21 @@ Handles:
 
 5. Memory Management
    - All allocations checked
-   - ft_lstclear used to free lists
+   - `ft_lstclear` used to free lists
    - No memory leaks
 
 ---
 
-# Resources
+## Resources
 
 Classic references:
 
-* Linked list and dynamic memory tutorials in C
-* Stack and sorting algorithm documentation
-* [text] https://m4nnb3ll.medium.com my-journey-to-find-a-good-sorting-algorithm-for-the-push-swap-42-project-4a18bc38b474
-*  [text](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
-* `push_swap visualizer` : [text](https://github.com/o-reo/push_swap_visualizer)
+* Linked list tutorials in C in Youtube
+* https://m4nnb3ll.medium.com/my-journey-to-find-a-good-sorting-algorithm-for-the-push-swap-42-project-4a18bc38b474
+*  (https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+* `push_swap visualizer` :(https://github.com/o-reo/push_swap_visualizer)
 
-Use of AI
+### Use of AI
 
 AI tools were used **as a learning and review aid only**, specifically for:
 
