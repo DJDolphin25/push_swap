@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:22:56 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/20 16:47:22 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 03:38:42 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,22 @@ static void	sort_three(t_stack *stacks)
 
 static void	sort_five(t_stack *stacks)
 {
-	int	max;
+	int	min;
 
 	while (ft_lstsize(stacks->a) > 3)
 	{
-		max = find_max(stacks);
-		move_to_top(stacks, max);
+		min = find_min(stacks->a);
+		move_to_top(stacks, min);
 		pb(stacks);
 	}
 	sort_three(stacks);
 	if (ft_lstsize(stacks->b) == 2)
 	{
 		pa(stacks);
-		ra(stacks);
 		pa(stacks);
-		ra(stacks);
 	}
 	else
-	{
 		pa(stacks);
-		ra(stacks);
-	}
 }
 
 void	sort_small(t_stack *stacks)

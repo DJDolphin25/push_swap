@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/20 16:51:47 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 04:39:50 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 /*static void list_print(t_node *list)
 {
 	t_node    *cur = list;
-	printf("[");
+	ft_printf("[");
 	while (cur)
 	{
-		printf("%ld", cur->number);
+		ft_printf("%d", cur->number);
 		cur = cur->next;
 		if (cur) 
-			printf(" -> ");
+			ft_printf(" -> ");
 	}
-	printf("]\n");
-}
-*/
+	ft_printf("]\n");
+}*/
+
 int	main(int ac, char **av)
 {
 	t_stack	*stacks;
@@ -45,7 +45,9 @@ int	main(int ac, char **av)
 		return (0);
 	if (ft_lstsize(stacks->a) <= 5)
 		sort_small(stacks);
-	// list_print(stacks->a);
-	// list_print(stacks->b);
+	else
+		sort_big(stacks);
+//	list_print(stacks->a);
+//	list_print(stacks->b);
 	return (0);
 }

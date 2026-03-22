@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 20:22:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/20 16:49:19 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 03:31:41 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,36 @@ int	ft_lstsize(t_node *head)
 	return (len);
 }
 
-int	find_max(t_stack *stacks)
+int	ft_abs(int n)
 {
-	int		max;
-	t_node	*current;
-
-	current = stacks->a;
-	max = current->number;
-	while (current)
-	{
-		if (current->number > max)
-			max = current->number;
-		current = current->next;
-	}
-	return (max);
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
-static	int	get_position(t_stack *stacks, int value)
+int	find_min(t_node *stack)
+{
+	int		min;
+	t_node	*current;
+
+	current = stack;
+	min = current->number;
+	while (current)
+	{
+		if (current->number < min)
+			min = current->number;
+		current = current->next;
+	}
+	return (min);
+}
+
+int	get_position(t_node *stack, int value)
 {
 	int		i;
 	t_node	*tmp;
 
 	i = 0;
-	tmp = stacks->a;
+	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->number == value)
@@ -64,7 +71,7 @@ void	move_to_top(t_stack *stacks, int value)
 	int	size;
 
 	size = ft_lstsize(stacks->a);
-	pos = get_position(stacks, value);
+	pos = get_position(stacks->a, value);
 	if (pos <= size / 2)
 	{
 		while (stacks->a->number != value)

@@ -16,8 +16,9 @@ PUSH_SRC = srcs/utils/lst_utils.c \
 	   srcs/rules/rotate.c \
 	   srcs/rules/reverse_rotate.c \
 	   srcs/algo/small_cases.c \
-	   srcs/algo/medium_cases.c \
-	   srcs/algo/large_cases.c
+	   srcs/algo/cost.c \
+	   srcs/algo/turk.c \
+	   srcs/algo/execute.c
 
 PUSH_OBJ = $(PUSH_SRC:.c=.o)
 
