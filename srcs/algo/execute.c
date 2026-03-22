@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 01:30:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 05:48:06 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 16:57:13 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	cost_from_pos(int size, int pos)
 		return (-(size - pos));
 }
 
-static void	rotate_both(t_stack *stacks, int cost_a, int cost_b)
+static void	rotate_both(t_stack *stacks, int *cost_a, int *cost_b)
 {
-	while (cost_a > 0 && cost_b > 0)
+	while (*cost_a > 0 && *cost_b > 0)
 	{
 		rr(stacks);
-		cost_a--;
-		cost_b--;
+		(*cost_a)--;
+		(*cost_b)--;
 	}
-	while (cost_a < 0 && cost_b < 0)
+	while (*cost_a < 0 && *cost_b < 0)
 	{
 		rrr(stacks);
-		cost_a++;
-		cost_b++;
+		(*cost_a)++;
+		(*cost_b)++;
 	}
 }
 
@@ -67,6 +67,6 @@ static void	finish_rotations(t_stack *stacks, int cost_a, int cost_b, char dir)
 
 void	execute_move(t_stack *stacks, int cost_a, int cost_b, char dir)
 {
-	rotate_both(stacks, cost_a, cost_b);
+	rotate_both(stacks, &cost_a, &cost_b);
 	finish_rotations(stacks, cost_a, cost_b, dir);
 }

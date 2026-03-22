@@ -6,26 +6,12 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 04:39:50 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 18:39:36 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-
-/*static void list_print(t_node *list)
-{
-	t_node    *cur = list;
-	ft_printf("[");
-	while (cur)
-	{
-		ft_printf("%d", cur->number);
-		cur = cur->next;
-		if (cur) 
-			ft_printf(" -> ");
-	}
-	ft_printf("]\n");
-}*/
 
 int	main(int ac, char **av)
 {
@@ -37,17 +23,27 @@ int	main(int ac, char **av)
 	if (!stacks)
 		error_msg();
 	stacks->a = parse_stack(av);
+	if (!stacks->a)
+	{
+		free(stacks);
+		error_msg();
+	}
 	stacks->b = NULL;
 	check_duplicates(stacks->a);
 	stacks->tail_a = ft_lstlast(stacks->a);
 	stacks->tail_b = NULL;
 	if (is_sorted(stacks) == 0)
+	{
+		ft_lstclear(&stacks->a);
+		free(stacks);
 		return (0);
+	}
 	if (ft_lstsize(stacks->a) <= 5)
 		sort_small(stacks);
 	else
 		sort_big(stacks);
-//	list_print(stacks->a);
-//	list_print(stacks->b);
+	ft_lstclear(&stacks->a);
+	ft_lstclear(&stacks->b);
+	free(stacks);
 	return (0);
 }

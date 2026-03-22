@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:14:47 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/05 22:40:43 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 17:29:22 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,46 +74,3 @@ void	ft_lstclear(t_node **head)
 		(*head) = temp;
 	}
 }
-/*#include <stdio.h>
-
-static void list_print(t_node *list)
-{
-	t_node    *cur = list;
-	printf("[");
-	while (cur)
-	{
-		printf("%ld", cur->number);
-		cur = cur->next;
-		if (cur) 
-			printf(" -> ");
-	}
-	printf("]\n");
-}
-
-int main()
-{
-	t_node	*a;
-	t_node	*b;
-	t_node	*c;
-	//t_node 	*d = NULL;
-	
-	a = ft_lstnew(5);
-	b = ft_lstnew(10);
-	c = ft_lstnew(3);
-	ft_lstclear(&a);
-	ft_lstsize(a);
-	list_print(a);
-	int len = ft_lstsize(a);
-	printf("%d\n", len);
-	ft_lstadd_front(&d, c);
-	list_print(d)
-	ft_lstadd_back(&d, b);
-	list_print(d);
-	int len = ft_lstsize(d);
-	printf("%d\n", len);
-	ft_lstclear(&d);
-	printf("%p", d);
-
-	return (0);
-
-}*/

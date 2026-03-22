@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 05:43:33 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 17:12:36 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	t_node	*tail_b;
 }	t_stack;
 
-typedef struct	s_cost
+typedef struct s_cost
 {
 	int	value;
 	int	cost_in_a;

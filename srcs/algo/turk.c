@@ -6,7 +6,7 @@
 /*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 00:34:07 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 05:42:16 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/22 17:59:23 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static t_cost	get_cheapest_from_a(t_stack *stacks)
 	while (current)
 	{
 		temp.value = current->number;
-		temp.cost_in_a = cost_from_pos(ft_lstsize(stacks->a), get_position(stacks->a, temp.value));
+		temp.cost_in_a = cost_from_pos(ft_lstsize(stacks->a),
+				get_position(stacks->a, temp.value));
 		target_pos = find_target_in_b(stacks, temp.value);
 		temp.cost_in_b = cost_from_pos(ft_lstsize(stacks->b), target_pos);
 		temp.total = total_cost(temp.cost_in_a, temp.cost_in_b);
@@ -36,16 +37,15 @@ static t_cost	get_cheapest_from_a(t_stack *stacks)
 	return (best);
 }
 
-static t_cost get_cheapest_from_b(t_stack *stacks)
+static t_cost	get_cheapest_from_b(t_stack *stacks)
 {
 	int		target_pos;
-	t_cost  temp;
-	t_cost  best;
-	t_node  *current;
-	
+	t_cost	temp;
+	t_cost	best;
+	t_node	*current;
+
 	current = stacks->b;
 	best.total = 2147483647;
-	
 	while (current)
 	{
 		temp.value = current->number;
