@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 20:08:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 05:32:36 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:27:38 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,6 @@ int	find_target_in_b(t_stack *stacks, int value)
 	if (best_nb == -2147483648)
 		pos = get_position(stacks->b, find_min(stacks->b));
 	return (pos);
-}
-
-int	cost_a(t_stack *stacks, int value)
-{
-	int	pos;
-	int	size;
-
-	size = ft_lstsize(stacks->a);
-	pos = get_position(stacks->a, value);
-	if (pos <= size / 2)
-		return (pos);
-	else
-		return (-(size - pos));
-}
-
-int	cost_b(t_stack *stacks, int value)
-{
-	int	pos;
-	int	size;
-
-	size = ft_lstsize(stacks->b);
-	pos = find_target_in_b(stacks, value);
-	if (pos <= size / 2)
-		return (pos);
-	else
-		return (-(size - pos));
 }
 
 int	total_cost(int cost_a, int cost_b)

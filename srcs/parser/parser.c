@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:16:03 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 18:13:30 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:48:00 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
-
-void	error_msg(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 static void	free_split(char **split)
 {
@@ -34,32 +28,27 @@ static void	free_split(char **split)
 	free(split);
 }
 
-void	check_duplicates(t_node *head)
+static int	parse_digits(char *num, long *result)
 {
-	t_node	*i;
-	t_node	*j;
-
-	i = head;
-	while (i)
+	while (*num)
 	{
-		j = i->next;
-		while (j)
-		{
-			if (i->number == j->number)
-				error_msg();
-			j = j->next;
-		}
-		i = i->next;
+		if (!ft_isdigit(*num))
+			return (0);
+		*result = *result * 10 + (*num - '0');
+		if (*result > 2147483647)
+			return (0);
+		num++;
 	}
+	return (1);
 }
 
-static	long	parse_number(char *num)
+static int	parse_number(char *num, long *out)
 {
 	int		sign;
 	long	result;
 
 	if (!num || *num == '\0')
-		error_msg();
+		return (0);
 	sign = 1;
 	if (*num == '+' || *num == '-')
 	{
@@ -68,27 +57,45 @@ static	long	parse_number(char *num)
 		num++;
 	}
 	if (!ft_isdigit(*num))
-		error_msg();
+		return (0);
 	result = 0;
-	while (*num)
+	if (!parse_digits(num, &result))
+		return (0);
+	if (sign == -1 && - result < -2147483648)
+		return (0);
+	*out = result * sign;
+	return (1);
+}
+
+static void	process_split(char **split, t_node **head)
+{
+	char	**s;
+	long	num;
+	t_node	*node;
+
+	s = split;
+	while (*s)
 	{
-		if (!ft_isdigit(*num))
-			error_msg();
-		result = result * 10 + (*num++ - '0');
-		if ((sign == 1 && result > 2147483647)
-			|| (sign == -1 && - result < -2147483648))
-			error_msg();
+		if (!parse_number(*s, &num))
+		{
+			free_split(split);
+			error_free(*head);
+		}
+		node = ft_lstnew(num);
+		if (!node)
+		{
+			free_split(split);
+			error_free(*head);
+		}
+		ft_lstadd_back(head, node);
+		s++;
 	}
-	return (result * sign);
 }
 
 t_node	*parse_stack(char **av)
 {
 	char	**split;
-	char	**s;
-	long	num;
 	t_node	*head;
-	t_node	*node;
 
 	head = NULL;
 	av++;
@@ -96,16 +103,8 @@ t_node	*parse_stack(char **av)
 	{
 		split = ft_split(*av++, ' ');
 		if (!split)
-			error_msg();
-		s = split;
-		while (*s)
-		{
-			num = parse_number(*s++);
-			node = ft_lstnew(num);
-			if (!node)
-				error_msg();
-			ft_lstadd_back(&head, node);
-		}
+			error_free(head);
+		process_split(split, &head);
 		free_split(split);
 	}
 	return (head);

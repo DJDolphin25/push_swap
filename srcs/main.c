@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:10:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 22:23:14 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:58:02 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void	init_stack(t_stack *stacks, char **av)
 	if (!stacks->a)
 	{
 		free(stacks);
-		error_msg();
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	stacks->b = NULL;
 	check_duplicates(stacks->a);
@@ -29,9 +30,12 @@ static void	init_stack(t_stack *stacks, char **av)
 
 static void	sort_and_free(t_stack *stacks)
 {
-	if (is_sorted(stacks) == 0)
+	if (!stacks)
+		return ;
+	if (!is_sorted(stacks))
 	{
 		ft_lstclear(&stacks->a);
+		ft_lstclear(&stacks->b);
 		free(stacks);
 		return ;
 	}
@@ -49,10 +53,13 @@ int	main(int ac, char **av)
 	t_stack	*stacks;
 
 	if (ac < 2)
-		return (1);
+		return (0);
 	stacks = malloc(sizeof(t_stack));
 	if (!stacks)
-		error_msg();
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	init_stack(stacks, av);
 	sort_and_free(stacks);
 	return (0);

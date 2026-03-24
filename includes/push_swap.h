@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
+/*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:37:04 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 17:12:36 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/24 23:47:56 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		is_sorted(t_stack *stacks);
 t_node	*parse_stack(char **av);
 
 void	error_msg(void);
+void	error_free(t_node *head);
 void	check_duplicates(t_node *head);
 
 //Rules
@@ -86,11 +87,10 @@ void	rrb(t_stack *stacks);
 void	rrr(t_stack *stacks);
 
 //Algo
-//t_cost	get_cheapest(t_node *stacks);
-
 void	execute_move(t_stack *stacks, int cost_a, int cost_b, char dir);
 void	move_b_to_a(t_stack *stacks);
 void	final_rotation(t_stack *stacks);
 void	sort_small(t_stack *stacks);
 void	sort_big(t_stack *stacks);
+
 #endif
