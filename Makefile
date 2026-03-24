@@ -24,6 +24,7 @@ PUSH_OBJ = $(PUSH_SRC:.c=.o)
 
 
 #LIBFT SOURCES
+
 LIBFT_SRC = srcs/libft/src/libft/ft_atoi.c \
             srcs/libft/src/libft/ft_bzero.c \
             srcs/libft/src/libft/ft_calloc.c \
@@ -76,11 +77,11 @@ LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 .PHONY: all clean fclean re libft
 
 
-# Regla por defecto
+# Default rule
 
 all: $(NAME)
 
-# Compilar push_swap + link con libft.a
+# Compile push_swap + link with libft.a
 
 $(NAME): $(PUSH_OBJ)
 	$(MAKE) -C srcs/libft
@@ -88,24 +89,28 @@ $(NAME): $(PUSH_OBJ)
 	@echo "✅ $(NAME) compilado y linkeado con libft ✅"
 
 
-# Librería libft.a
+# libft.a library
 
 libft.a: $(LIBFT_OBJ)
 	ar rcs $(LIBFT) $(LIBFT_OBJ)
 	@echo "✅ Librería $(LIBFT) creada ✅"
 
 
-# Compilar objetos individuales
+# Commpile each .c to .o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Limpiar objetos
+# Clean up objects
 
 clean:
 	rm -f $(PUSH_OBJ) $(LIBFT_OBJ)
 
+# Clean up everything (objects + library)
+
 fclean: clean
 	rm -f $(NAME) $(LIBFT)
+
+# Rebuild from scratch
 
 re: fclean all
