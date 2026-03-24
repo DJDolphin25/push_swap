@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 20:08:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/25 00:20:30 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:26:10 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,3 @@ int	find_target_in_b(t_stack *stacks, int value)
 		pos = get_position(stacks->b, find_min(stacks->b));
 	return (pos);
 }
-
