@@ -6,12 +6,20 @@
 /*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 20:08:48 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/24 23:27:38 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:16:19 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+int	cost_from_pos(int size, int pos)
+{
+	if (pos <= size / 2)
+		return (pos);
+	else
+		return (-(size - pos));
+}
 
 int	find_target_in_a(t_stack *stacks, int value)
 {

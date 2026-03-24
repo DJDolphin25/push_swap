@@ -3,23 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theoppon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 01:30:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 16:57:13 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:16:03 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-
-int	cost_from_pos(int size, int pos)
-{
-	if (pos <= size / 2)
-		return (pos);
-	else
-		return (-(size - pos));
-}
 
 static void	rotate_both(t_stack *stacks, int *cost_a, int *cost_b)
 {
