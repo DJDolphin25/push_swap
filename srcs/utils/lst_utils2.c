@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theoppon <theoppon@student.42belgium.      +#+  +:+       +#+        */
+/*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 20:22:31 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/22 03:31:41 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:19:54 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@ int	ft_lstsize(t_node *head)
 		len++;
 	}
 	return (len);
-}
-
-int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
 }
 
 int	find_min(t_node *stack)
