@@ -6,7 +6,7 @@
 /*   By: theoppon <theoppon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 21:10:41 by theoppon          #+#    #+#             */
-/*   Updated: 2026/03/24 23:57:44 by theoppon         ###   ########.fr       */
+/*   Updated: 2026/03/25 19:46:23 by theoppon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	is_sorted(t_stack *stacks)
 
 	curr = stacks->a;
 	if (!curr || !curr->next)
-		return (0);
+		return (1);
 	while (curr->next)
 	{
 		if (curr->number > curr->next->number)
-			return (1);
+			return (0);
 		curr = curr->next;
 	}
-	return (0);
+	return (1);
 }
 
 void	error_msg(void)
